@@ -38,11 +38,16 @@ class Cursor
   def initialize(cursor_pos, board)
     @cursor_pos = cursor_pos
     @board = board
+    @selected = false
   end
 
   def get_input
     key = KEYMAP[read_char]
     handle_key(key)
+  end
+
+  def toggle_selected
+    @selected = !@selected
   end
 
   private
@@ -98,11 +103,16 @@ class Cursor
   end
 
   def update_pos(diff)
-    if Board.valid_position(diff)
-    @cursor_pos = diff
+    dx, dy = diff
+    x, y = @cursor_pos
+    temp = [dx+x, dy+y]
+    if board.valid_position(temp)
+      @cursor_pos = temp
     else
       raise "This position is not valid"
     end
     
   end
+
+ 
 end
