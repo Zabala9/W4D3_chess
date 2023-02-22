@@ -10,8 +10,8 @@ class Board
                     @rows[i][j] = Piece.new("white", self, [i, j])
                 elsif  i == 6 || i == 7
                     @rows[i][j] = Piece.new("black", self, [i, j])
-                # else 
-                #     @rows[i][j] = NullPiece.new  
+                else 
+                    @rows[i][j] = NullPiece.instance
                 end
             end
         end
@@ -20,13 +20,13 @@ class Board
     def move_piece(start_pos, end_pos)
         x, y = start_pos
         a, b = end_pos
-        if @rows[x][y] == nil
+        if @rows[x][y] == NullPiece.instance
             raise "There is not piece in this location."
-        elsif @rows[a][b] != nil
-            raise "There is a piece here. Make a new move."
+        elsif @rows[a][b] != NullPiece.instance
+            raise "There is a piece here. Make other move."
         else
             piece =  @rows[x][y]
-            @rows[x][y] = nil
+            @rows[x][y] = NullPiece.instance
             @rows[a][b] = piece
         end
     end

@@ -1,7 +1,8 @@
-# require "singleton"
+require "singleton"
+require "colorize"
 
 class NullPiece < Piece
-    # include Singleton
+    include Singleton
 
     def initialize
     end
@@ -10,6 +11,6 @@ class NullPiece < Piece
     end
 
     def symbol
-        # :null
+        ":Null".white
     end
 end
