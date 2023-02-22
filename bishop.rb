@@ -2,7 +2,7 @@ require_relative "slideable.rb"
 require_relative "piece.rb"
 
 class Bishop < Piece
-    inlcude Slideable
+    include Slideable
     def symbol
         :B
     end
