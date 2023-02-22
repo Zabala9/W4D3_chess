@@ -1,4 +1,6 @@
-class KnightKing < Piece
+
+
+class Knight < Piece
     def symbol
     end
 
