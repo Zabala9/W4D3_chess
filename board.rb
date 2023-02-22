@@ -24,8 +24,14 @@ class Board
     def move_piece(start_pos, end_pos)
         x, y = start_pos
         a, b = end_pos
-       piece =  @rows[x][y]
-       @rows[x][y] = nil
-       @rows[a][b] = piece
+        if @rows[x][y] == nil
+            raise "There is not piece in this location."
+        elsif @rows[a][b] != nil
+            raise "There is a piece here. Make a new move."
+        else
+            piece =  @rows[x][y]
+            @rows[x][y] = nil
+            @rows[a][b] = piece
+        end
     end
 end
