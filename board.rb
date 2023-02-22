@@ -7,12 +7,12 @@ class Board
         (0..7).each do |i|
             (0..7).each do  |j|
                 if i == 0 || i == 1 
-                    @rows[i][j] = Piece.new("white", "board", [i, j])
+                    @rows[i][j] = Piece.new("white", self, [i, j])
 
                 elsif  i == 6 || i == 7
-                    @rows[i][j] = Piece.new("black", "board", [i, j])
+                    @rows[i][j] = Piece.new("black", self, [i, j])
                 # else 
-                #     @rows[i][j] = NullPiece.new
+                #     @rows[i][j] = NullPiece.new  
                 end
             end
 
@@ -22,5 +22,10 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
+        x, y = start_pos
+        a, b = end_pos
+       piece =  @rows[x][y]
+       @rows[x][y] = nil
+       @rows[a][b] = piece
     end
 end
