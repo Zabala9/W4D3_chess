@@ -7,6 +7,7 @@ class Piece
     end
     
     def to_s
+        "  #{symbol}  "
     end
 
     def empty?
@@ -20,7 +21,7 @@ class Piece
         @pos = [x, y]
     end
 
-    def Symbol
+    def symbol
     end
 
     private

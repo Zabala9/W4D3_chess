@@ -8,6 +8,7 @@ require_relative "bishop.rb"
 require_relative "null_piece.rb"
 
 class Board
+    attr_accessor :rows
     def initialize
         @rows = Array.new(8) {Array.new(8)}
         (0..7).each do |i|
@@ -57,6 +58,18 @@ class Board
             @rows[a][b] = piece
         end
     end
+
+    def [](pos)
+        x, y = pos
+        @rows[x][y]
+    end
+
+    def []=(pos, val)
+        x, y = pos
+        @rows[x][y] = val
+    end
+
+
 
     def valid_position(pos)
         x,y = pos
