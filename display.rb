@@ -29,6 +29,7 @@ class Display
         @board.rows.each.with_index do | row, i |
             arr = []
             row.each.with_index do |ele, j|
+                debugger
                 color_options = colorize_square(i, j)
                 arr << ele.symbol.colorize(color_options)
             end
