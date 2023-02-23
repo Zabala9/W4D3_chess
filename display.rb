@@ -15,27 +15,27 @@ class Display
         # look at each row with a helper fxn
         # return 2D array of colorized pieces
         new_arr = []
-        (0..7).each do |i|
-            arr = []
-            (0..7).each do |j|
+        # (0..7).each do |i|
+        #     arr = []
+        #     (0..7).each do |j|
              
+        #         color_options = colorize_square(i, j)
+        #         current_piece =  @board.rows[i][j]
+        #         arr << current_piece.to_s.colorize(color_options)
+        #     end
+        #     new_arr << arr
+        # end
+
+        @board.rows.each.with_index do | row, i |
+            arr = []
+            row.each.with_index do |ele, j|
                 color_options = colorize_square(i, j)
-                current_piece =  @board.rows[i][j]
-                arr << current_piece.to_s.colorize(color_options)
+                arr << ele.symbol.colorize(color_options)
             end
             new_arr << arr
         end
-    #    x
-    #     .each do | row |
-    #         arr = []
-    #         row.each do |ele|
-    #           arr << ele.symbol 
-    #         end
-    #         new_arr << arr
-    #     end
      
         new_arr
-        # @board.rows
        
     end
 
